@@ -49,6 +49,7 @@ See [training content](#content) for versions and instructions.
 - Dive deeper with challenges included for all labs
 
 ## Content
+- [Training web page](https://infineon.github.io/mtb-training-psoc-4-msclp-bist/)
 - [Presentation](./Presentation/PSOC(TM)%204%20CAPSENSE(TM)%20built%20in%20self%20test.pdf)
 - [Training manual](./Manual/PSOC(TM)_4_CAPSENSE(TM)_BIST_training_manual.md)
 - [Solution to labs](./Lab_Solutions/)
