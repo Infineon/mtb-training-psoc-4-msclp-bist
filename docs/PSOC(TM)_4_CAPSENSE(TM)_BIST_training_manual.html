@@ -1,0 +1,1011 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Hands-on training manual for the PSOC™ 4 CAPSENSE™ Built-In Self-Test (BIST).
+">
+      
+      
+        <meta name="author" content="Infineon Technologies AG">
+      
+      
+      
+        <link rel="prev" href="Presentation/PSOC%28TM%29%204%20CAPSENSE%28TM%29%20built%20in%20self%20test.pdf">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Lab Manual - PSOC™ 4 CAPSENSE™ Built-In Self-Test (BIST) Training</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#psoctm-4-training-manual-capsensetm-built-in-self-test-bist" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="PSOC™ 4 CAPSENSE™ Built-In Self-Test (BIST) Training" class="md-header__button md-logo" aria-label="PSOC™ 4 CAPSENSE™ Built-In Self-Test (BIST) Training" data-md-component="logo">
+      
+  <img src="assets/images/infineon_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PSOC™ 4 CAPSENSE™ Built-In Self-Test (BIST) Training
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lab Manual
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Infineon/mtb-training-psoc-4-msclp-bist" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Infineon/mtb-training-psoc-4-msclp-bist
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="PSOC™ 4 CAPSENSE™ Built-In Self-Test (BIST) Training" class="md-nav__button md-logo" aria-label="PSOC™ 4 CAPSENSE™ Built-In Self-Test (BIST) Training" data-md-component="logo">
+      
+  <img src="assets/images/infineon_logo.png" alt="logo">
+
+    </a>
+    PSOC™ 4 CAPSENSE™ Built-In Self-Test (BIST) Training
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Infineon/mtb-training-psoc-4-msclp-bist" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Infineon/mtb-training-psoc-4-msclp-bist
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Presentation/PSOC%28TM%29%204%20CAPSENSE%28TM%29%20built%20in%20self%20test.pdf" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab Manual
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="PSOC%28TM%29_4_CAPSENSE%28TM%29_BIST_training_manual.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab Manual
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#about-this-document" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        About this document
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#required-development-tools-and-prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required development tools and prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#executing-the-built-in-self-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Executing the built-in self-tests
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#executing-the-built-in-self-tests-periodically" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Executing the built-in self-tests periodically
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#revision-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Revision history
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="psoctm-4-training-manual-capsensetm-built-in-self-test-bist">PSOC&trade; 4 training manual: CAPSENSE&trade; built-in self-test (BIST)<a class="headerlink" href="#psoctm-4-training-manual-capsensetm-built-in-self-test-bist" title="Permanent link">&para;</a></h1>
+<h2 id="about-this-document">About this document<a class="headerlink" href="#about-this-document" title="Permanent link">&para;</a></h2>
+<h3 id="scope-and-purpose">Scope and purpose<a class="headerlink" href="#scope-and-purpose" title="Permanent link">&para;</a></h3>
+<p>This document is a training manual for the hands-on exercise of CAPSENSE&trade; middleware built-in self-test (BIST) on PSOC&trade; 4.</p>
+<h3 id="intended-audience">Intended audience<a class="headerlink" href="#intended-audience" title="Permanent link">&para;</a></h3>
+<p>This manual is intended for design engineers, technicians, and developers of electronic systems.</p>
+<hr />
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>This manual provides specific instructions to create, configure, build, and run the code examples on the PSOC&trade; 4100T Plus. In this lab session, you will learn how to use the CAPSENSE&trade; middleware built-in self-test (BIST) to validate the operation of a capacitive sensing system.</p>
+<hr />
+<h2 id="required-development-tools-and-prerequisites">Required development tools and prerequisites<a class="headerlink" href="#required-development-tools-and-prerequisites" title="Permanent link">&para;</a></h2>
+<h3 id="tools">Tools<a class="headerlink" href="#tools" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>ModusToolbox&trade; software</strong> v3.8 or later (Recommended installation via <a href="https://softwaretools.infineon.com/tools/com.ifx.tb.tool.modustoolboxsetup">ModusToolbox&trade; Setup tool</a>)</li>
+<li><a href="https://code.visualstudio.com/"><strong>Microsoft Visual Studio Code</strong></a> with the <a href="https://marketplace.visualstudio.com/items?itemName=InfineonAG.modustoolbox-for-vscode"><strong>ModusToolbox&trade; for VS Code</strong></a> extension installed</li>
+<li><strong>ModusToolbox&trade; programming tools</strong> v1.9.0 or later (Installed by <a href="https://softwaretools.infineon.com/tools/com.ifx.tb.tool.modustoolboxsetup">ModusToolbox&trade; Setup tool</a> as a dependency to ModusToolbox&trade; v3.8)</li>
+<li><strong>ModusToolbox&trade; CAPSENSE&trade; and Multi-Sense Pack</strong> v1.5.0 or later (Recommended installation via <a href="https://softwaretools.infineon.com/tools/com.ifx.tb.tool.modustoolboxsetup">ModusToolbox&trade; Setup tool</a>)</li>
+<li><strong>Terminal emulator</strong> (Instructions in this document use Tera Term)</li>
+<li><strong>PSOC&trade; 4100T Plus Prototyping Kit</strong> (<a href="https://www.infineon.com/evaluation-board/CY8CPROTO-041TP">CY8CPROTO-041TP</a>)</li>
+<li><strong>Male-to-male jumper wires</strong></li>
+</ul>
+<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h3>
+<p>Install the software and obtain the hardware listed in the <a href="#required-development-tools-and-prerequisites">Required development tools and prerequisites</a> section.</p>
+<p>This manual does not cover the basic concepts of ModusToolbox&trade; and PSOC&trade; 4100T Plus.</p>
+<ul>
+<li>For an introduction to PSOC&trade;, including a getting started guide to ModusToolbox&trade;, go to: <a href="https://www.infineon.com/product-information/psocdeveloper">PSOC&trade; Developer</a></li>
+<li>For the PSOC&trade; 4 CAPSENSE&trade; using PSOC&trade; 4000T and PSOC&trade; 4100T Plus training, go to: <a href="https://github.com/Infineon/mtb-training-psoc-4-msclp-capsense">PSOC&trade; 4 CAPSENSE&trade; training manual</a></li>
+</ul>
+<hr />
+<h2 id="executing-the-built-in-self-tests">Executing the built-in self-tests<a class="headerlink" href="#executing-the-built-in-self-tests" title="Permanent link">&para;</a></h2>
+<h3 id="objective">Objective<a class="headerlink" href="#objective" title="Permanent link">&para;</a></h3>
+<p>In this lab, you will use the MSCLP low-power CSD button example to enable and run the built-in self-tests for the CAPSENSE&trade; middleware.</p>
+<h3 id="project-creation">Project creation<a class="headerlink" href="#project-creation" title="Permanent link">&para;</a></h3>
+<ol>
+<li><span id="step1-workspace-creation"></span>Open <strong>ModusToolbox&trade;</strong> from the <strong>Windows Start</strong> menu</li>
+</ol>
+<blockquote>
+<p><strong>Note:</strong> If you have not installed ModusToolbox&trade;, see the <a href="#required-development-tools-and-prerequisites">Required development tools</a> section.</p>
+</blockquote>
+<p><img src="assets/images/opening_modustoolbox_from_windows_11_start.png" alt="Running ModusToolbox Dashboard" style="width:427px; height:auto; display:block; margin:0 auto;" /></p>
+<ol start="2">
+<li><span id="step2-directory-selection"></span> Select your <strong>Target IDE</strong> (you will use <strong>Microsoft Visual Studio Code</strong>), and then click <strong>Launch Project Creator</strong></li>
+</ol>
+<p><img src="assets/images/launch_project_creator.png" alt="Launching Project Creator" style="width:1200px; height:auto; display:block; margin:0 auto;" /></p>
+<ol start="3">
+<li><strong>Project Creator</strong> tool prompts you to choose a <strong>BSP</strong> (board support package)</li>
+</ol>
+<blockquote>
+<p><strong>Note:</strong> BSPs are aligned with our development/evaluation kits; they provide files for basic device functionality. A BSP typically has a <code>design.modus</code> file that configures clocks and other board-specific capabilities. That file is used by the ModusToolbox&trade; configurators. A BSP also includes the required device support code for the device on the board. You can modify the configuration to suit your application.</p>
+</blockquote>
+<ol start="4">
+<li>Once the <strong>Project Creator</strong> launches, select the <strong>CY8CPROTO-041TP</strong> BSP under the PSOC 4 BSPs, and then click <strong>Next</strong></li>
+</ol>
+<p><img src="assets/images/selecting_the_bsp.png" alt="Project Creator BSP Selection" style="width:800px; height:auto; display:block; margin:0 auto;" /></p>
+<ol start="5">
+<li>Click <strong>Next</strong> to proceed to the application selection menu. Select the <strong>MSCLP Low Power CSD Button</strong> under the Sensing section by clicking the <strong>checkbox</strong> near the application, and then click <strong>Create</strong></li>
+</ol>
+<p><img src="assets/images/select_the_msclp_low_power_csd_button_application.png" alt="Project Creator example code creation" style="width:800px; height:auto; display:block; margin:0 auto;" /></p>
+<ol start="6">
+<li>When you click <strong>Create</strong>, a new project is created. The project location is under the <strong>Application root path</strong>, in a folder with the given project name. Navigate to the project directory, and find the <strong>.code-workspace</strong> file and open it with Microsoft Visual Studio Code</li>
+</ol>
+<p><img src="assets/images/vscode_workspace_file.png" alt="VSCODE workspace file after project creation" style="width:700px; height:auto; display:block; margin:0 auto;" /></p>
+<ol start="7">
+<li>Once opened in Visual Studio Code, ensure that the ModusToolbox&trade; for VS Code extension is installed. When the extension is running, you will see it in the main panel</li>
+</ol>
+<p><img src="assets/images/vsocde_modustoolbox_extension.png" alt="VSCODE workspace file after project creation" style="width:1200px; height:auto; display:block; margin:0 auto;" /></p>
+<p><br></p>
+<blockquote>
+<p><strong>Note:</strong> The ModusToolbox&trade; for VS Code extension may display buttons indicating that the VS Code tasks and settings need to be updated. Simply click the buttons to correct the issues. This is a minor version mismatch between the ModusToolbox&trade; tools and the VS Code extension and does not affect functionality.</p>
+</blockquote>
+<p><img src="assets/images/vscode_fix_tasks_settings_prompt.png" alt="VS Code extension prompting to fix tasks and settings" style="width:800px; height:auto; display:block; margin:0 auto;" /></p>
+<hr />
+<h3 id="enabling-the-bist-libraries-for-capsensetm">Enabling the BIST libraries for CAPSENSE&trade;<a class="headerlink" href="#enabling-the-bist-libraries-for-capsensetm" title="Permanent link">&para;</a></h3>
+<ol>
+<li>In the ModusToolbox&trade; for VS Code extension, scroll down to <strong>Tools</strong>, and then open <strong>CAPSENSE&trade; Configurator</strong></li>
+</ol>
+<p><img src="assets/images/launching_capsense_configurator_from_modustoolbox_vscode_extension.png" alt="Launching CAPSENSE Configurator" style="width:1200px; height:auto; display:block; margin:0 auto;" /></p>
+<ol start="2">
+<li>Navigate to the <strong>Advanced</strong> tab, and then click the <strong>Enable self-test library</strong> check box</li>
+</ol>
+<p><img src="assets/images/enabling_self_test_library.png" alt="Enable CAPSENSE self-test library" style="width:905px; height:auto; display:block; margin:0 auto;" /></p>
+<ol start="3">
+<li>
+<p>Save and close the <strong>CAPSENSE&trade; Configurator</strong></p>
+</li>
+<li>
+<p>Add the <code>Cy_CapSense_RunSelfTest</code> API to the main function in main.c using the <code>CY_CAPSENSE_BIST_RUN_AVAILABLE_SELF_TEST_MASK</code> input so that all available tests run:</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="cm">/* Initialize MSC CAPSENSE */</span>
+<span class="n">initialize_capsense</span><span class="p">();</span>
+
+<span class="cm">/* Measures the actual ILO frequency and compensate MSCLP wake up timers */</span>
+<span class="n">Cy_CapSense_IloCompensate</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cy_capsense_context</span><span class="p">);</span>
+
+<span class="n">Cy_CapSense_RunSelfTest</span><span class="p">(</span><span class="n">CY_CAPSENSE_BIST_RUN_AVAILABLE_SELF_TEST_MASK</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">cy_capsense_context</span><span class="p">);</span>
+</code></pre></div>
+<ol start="5">
+<li>Program the device from the ModusToolbox&trade; for VS Code extension</li>
+</ol>
+<p><img src="assets/images/programming_device_from_modustoolbox_vscode_extension.png" alt="Program the Device" style="width:800px; height:auto; display:block; margin:0 auto;" /></p>
+<ol start="6">
+<li>Open the <strong>CAPSENSE&trade; Tuner</strong> from the ModusToolbox&trade; for VS Code extension</li>
+</ol>
+<p><img src="assets/images/launching_capsense_tuner_from_modustoolbox_vscode_extension.png" alt="Opening CAPSENSE Tuner" style="width:800px; height:auto; display:block; margin:0 auto;" /></p>
+<ol start="7">
+<li>Connect to the device and enable the low-power sensor and button sensor widgets in the tuner</li>
+</ol>
+<p><img src="assets/images/connecting_to_capsense_tuner.png" alt="Enabling Widget in Tuner" style="width:413px; height:auto; display:block; margin:0 auto;" /></p>
+<ol start="8">
+<li>Click the button sensor widget and observe the measured capacitance</li>
+</ol>
+<p><img src="assets/images/capsense_tuner_measured_capacitance.png" alt="Measured capacitance in tuner" style="width:383px; height:auto; display:block; margin:0 auto;" /></p>
+<hr />
+<h3 id="printing-the-bist-results-to-the-uart-terminal">Printing the BIST results to the UART terminal<a class="headerlink" href="#printing-the-bist-results-to-the-uart-terminal" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Open the <strong>Device Configurator</strong> from the ModusToolbox&trade; for VS Code extension</li>
+<li>Open the <strong>Peripherals</strong> tab, and then enable Serial Communication Block (SCB) 0 in UART mode</li>
+<li>Select the clock, RX, and TX connections</li>
+<li>Change the SCB0 alias name to <code>DEBUG_UART</code></li>
+</ol>
+<blockquote>
+<p><strong>Note:</strong> For more information on configuring and using the SCB, click on the <strong>Configuration Help</strong> documentation link.</p>
+</blockquote>
+<p><img src="assets/images/enabling_uart_scb.png" alt="Enable SCB0 for Debug UART" style="width:1200px; height:auto; display:block; margin:0 auto;" /></p>
+<ol start="5">
+<li>Save and close the <strong>Device Configurator</strong></li>
+<li>Include the standard IO library in the main.c file to use <code>sprintf</code></li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+</code></pre></div>
+<ol start="7">
+<li>Enable the SCB in the main.c file so that the test results can be printed out. Add the following lines to configure and enable the UART:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="cm">/* Configure UART to operate */</span>
+<span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="n">Cy_SCB_UART_Init</span><span class="p">(</span><span class="n">DEBUG_UART_HW</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">DEBUG_UART_config</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
+
+<span class="cm">/* Enable UART to operate */</span>
+<span class="n">Cy_SCB_UART_Enable</span><span class="p">(</span><span class="n">DEBUG_UART_HW</span><span class="p">);</span>
+
+<span class="cm">/* Enable global interrupts */</span>
+<span class="n">__enable_irq</span><span class="p">();</span>
+
+<span class="n">Cy_SCB_UART_PutString</span><span class="p">(</span><span class="n">DEBUG_UART_HW</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\x1b</span><span class="s">[2J</span><span class="se">\x1b</span><span class="s">[;H&quot;</span><span class="p">);</span>
+<span class="n">Cy_SCB_UART_PutString</span><span class="p">(</span><span class="n">DEBUG_UART_HW</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;****************** </span><span class="se">\r\n</span><span class="s">&quot;</span>
+<span class="w">    </span><span class="s">&quot;PSOC 4100T Plus MCU: CAPSENSE BIST </span><span class="se">\r\n</span><span class="s">&quot;</span>
+<span class="w">    </span><span class="s">&quot;****************** </span><span class="se">\r\n\n</span><span class="s">&quot;</span><span class="p">);</span>
+</code></pre></div>
+<ol start="8">
+<li>Update the BIST execution so that the overall result is printed, as follows:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="cm">/* Initialize MSC CAPSENSE */</span>
+<span class="n">initialize_capsense</span><span class="p">();</span>
+
+<span class="cm">/* Measures the actual ILO frequency and compensate MSCLP wake up timers */</span>
+<span class="n">Cy_CapSense_IloCompensate</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cy_capsense_context</span><span class="p">);</span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">CY_CAPSENSE_BIST_SUCCESS_E</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Cy_CapSense_RunSelfTest</span><span class="p">(</span><span class="n">CY_CAPSENSE_BIST_RUN_AVAILABLE_SELF_TEST_MASK</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">cy_capsense_context</span><span class="p">))</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Cy_SCB_UART_PutString</span><span class="p">(</span><span class="n">DEBUG_UART_HW</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Tests passed</span><span class="se">\r\n\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<ol start="9">
+<li>Add the following code block to display the results of all executed self-tests</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="n">print_string</span><span class="p">[</span><span class="mi">120</span><span class="p">];</span>
+<span class="kt">uint32_t</span><span class="w"> </span><span class="n">shield_cap_measurement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">cy_capsense_context</span><span class="p">.</span><span class="n">ptrBistContext</span><span class="o">-&gt;</span><span class="n">ptrChShieldCap</span><span class="p">;</span>
+<span class="kt">uint32_t</span><span class="w"> </span><span class="n">cmod_1_cap_measurement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cy_capsense_context</span><span class="p">.</span><span class="n">ptrBistContext</span><span class="o">-&gt;</span><span class="n">cMod01Cap</span><span class="p">;</span>
+<span class="kt">uint32_t</span><span class="w"> </span><span class="n">cmod_2_cap_measurement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cy_capsense_context</span><span class="p">.</span><span class="n">ptrBistContext</span><span class="o">-&gt;</span><span class="n">cMod02Cap</span><span class="p">;</span>
+<span class="kt">uint32_t</span><span class="w"> </span><span class="n">lp_sensor_cap_measurement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cy_capsense_context</span><span class="p">.</span><span class="n">ptrWdConfig</span><span class="p">[</span><span class="n">CY_CAPSENSE_LOWPOWER0_WDGT_ID</span><span class="p">].</span><span class="n">ptrSnsCapacitance</span><span class="p">[</span><span class="n">CY_CAPSENSE_LOWPOWER0_SNS0_ID</span><span class="p">];</span>
+<span class="kt">uint32_t</span><span class="w"> </span><span class="n">button_sensor_cap_measurement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cy_capsense_context</span><span class="p">.</span><span class="n">ptrWdConfig</span><span class="p">[</span><span class="n">CY_CAPSENSE_BUTTON0_WDGT_ID</span><span class="p">].</span><span class="n">ptrSnsCapacitance</span><span class="p">[</span><span class="n">CY_CAPSENSE_BUTTON0_SNS0_ID</span><span class="p">];</span>
+<span class="kt">uint32_t</span><span class="w"> </span><span class="n">lp_electrode_cap_measurement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cy_capsense_context</span><span class="p">.</span><span class="n">ptrWdConfig</span><span class="p">[</span><span class="n">CY_CAPSENSE_LOWPOWER0_WDGT_ID</span><span class="p">].</span><span class="n">ptrEltdCapacitance</span><span class="p">[</span><span class="n">CY_CAPSENSE_LOWPOWER0_SNS0_ID</span><span class="p">];</span>
+<span class="kt">uint32_t</span><span class="w"> </span><span class="n">button_electrode_cap_measurement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cy_capsense_context</span><span class="p">.</span><span class="n">ptrWdConfig</span><span class="p">[</span><span class="n">CY_CAPSENSE_BUTTON0_WDGT_ID</span><span class="p">].</span><span class="n">ptrEltdCapacitance</span><span class="p">[</span><span class="n">CY_CAPSENSE_BUTTON0_SNS0_ID</span><span class="p">];</span>
+<span class="kt">uint16_t</span><span class="w"> </span><span class="n">vdda</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cy_capsense_context</span><span class="p">.</span><span class="n">ptrBistContext</span><span class="o">-&gt;</span><span class="n">vddaVoltage</span><span class="p">;</span>
+<span class="kt">uint32_t</span><span class="w"> </span><span class="n">lp_sensor_crc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cy_capsense_context</span><span class="p">.</span><span class="n">ptrBistContext</span><span class="o">-&gt;</span><span class="n">ptrWdgtCrc</span><span class="p">[</span><span class="n">CY_CAPSENSE_LOWPOWER0_WDGT_ID</span><span class="p">];</span>
+<span class="kt">uint32_t</span><span class="w"> </span><span class="n">button_crc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cy_capsense_context</span><span class="p">.</span><span class="n">ptrBistContext</span><span class="o">-&gt;</span><span class="n">ptrWdgtCrc</span><span class="p">[</span><span class="n">CY_CAPSENSE_BUTTON0_WDGT_ID</span><span class="p">];</span>
+
+<span class="n">sprintf</span><span class="p">(</span><span class="n">print_string</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Shield Capacitance: %lu fF</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">shield_cap_measurement</span><span class="p">);</span>
+<span class="n">Cy_SCB_UART_PutString</span><span class="p">(</span><span class="n">DEBUG_UART_HW</span><span class="p">,</span><span class="w"> </span><span class="n">print_string</span><span class="p">);</span>
+<span class="n">sprintf</span><span class="p">(</span><span class="n">print_string</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;CMOD 1 Capacitance: %lu pF</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">cmod_1_cap_measurement</span><span class="p">);</span>
+<span class="n">Cy_SCB_UART_PutString</span><span class="p">(</span><span class="n">DEBUG_UART_HW</span><span class="p">,</span><span class="w"> </span><span class="n">print_string</span><span class="p">);</span>
+<span class="n">sprintf</span><span class="p">(</span><span class="n">print_string</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;CMOD 2 Capacitance: %lu pF</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">cmod_2_cap_measurement</span><span class="p">);</span>
+<span class="n">Cy_SCB_UART_PutString</span><span class="p">(</span><span class="n">DEBUG_UART_HW</span><span class="p">,</span><span class="w"> </span><span class="n">print_string</span><span class="p">);</span>
+<span class="n">sprintf</span><span class="p">(</span><span class="n">print_string</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Low Power Sensor Capacitance: %lu fF</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lp_sensor_cap_measurement</span><span class="p">);</span>
+<span class="n">Cy_SCB_UART_PutString</span><span class="p">(</span><span class="n">DEBUG_UART_HW</span><span class="p">,</span><span class="w"> </span><span class="n">print_string</span><span class="p">);</span>
+<span class="n">sprintf</span><span class="p">(</span><span class="n">print_string</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Button Sensor Capacitance: %lu fF</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">button_sensor_cap_measurement</span><span class="p">);</span>
+<span class="n">Cy_SCB_UART_PutString</span><span class="p">(</span><span class="n">DEBUG_UART_HW</span><span class="p">,</span><span class="w"> </span><span class="n">print_string</span><span class="p">);</span>
+<span class="n">sprintf</span><span class="p">(</span><span class="n">print_string</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Low Power Electrode Capacitance: %lu fF</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lp_electrode_cap_measurement</span><span class="p">);</span>
+<span class="n">Cy_SCB_UART_PutString</span><span class="p">(</span><span class="n">DEBUG_UART_HW</span><span class="p">,</span><span class="w"> </span><span class="n">print_string</span><span class="p">);</span>
+<span class="n">sprintf</span><span class="p">(</span><span class="n">print_string</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Button Electrode Capacitance: %lu fF</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">button_electrode_cap_measurement</span><span class="p">);</span>
+<span class="n">Cy_SCB_UART_PutString</span><span class="p">(</span><span class="n">DEBUG_UART_HW</span><span class="p">,</span><span class="w"> </span><span class="n">print_string</span><span class="p">);</span>
+<span class="n">sprintf</span><span class="p">(</span><span class="n">print_string</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;VDDA Voltage: %u mV</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">vdda</span><span class="p">);</span>
+<span class="n">Cy_SCB_UART_PutString</span><span class="p">(</span><span class="n">DEBUG_UART_HW</span><span class="p">,</span><span class="w"> </span><span class="n">print_string</span><span class="p">);</span>
+<span class="n">sprintf</span><span class="p">(</span><span class="n">print_string</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Low Power Sensor CRC: 0x%lx</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lp_sensor_crc</span><span class="p">);</span>
+<span class="n">Cy_SCB_UART_PutString</span><span class="p">(</span><span class="n">DEBUG_UART_HW</span><span class="p">,</span><span class="w"> </span><span class="n">print_string</span><span class="p">);</span>
+<span class="n">sprintf</span><span class="p">(</span><span class="n">print_string</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Button Sensor CRC: 0x%lx</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">button_crc</span><span class="p">);</span>
+<span class="n">Cy_SCB_UART_PutString</span><span class="p">(</span><span class="n">DEBUG_UART_HW</span><span class="p">,</span><span class="w"> </span><span class="n">print_string</span><span class="p">);</span>
+</code></pre></div>
+<ol start="10">
+<li>Program the device from the ModusToolbox&trade; for VS Code extension</li>
+</ol>
+<p><img src="assets/images/programming_device_from_modustoolbox_vscode_extension.png" alt="Program the Device" style="width:800px; height:auto; display:block; margin:0 auto;" /></p>
+<ol start="11">
+<li>Observe the terminal output</li>
+</ol>
+<p><img src="assets/images/output_of_capsense_bist.png" alt="Terminal Output after execution" style="width:659px; height:auto; display:block; margin:0 auto;" /></p>
+<hr />
+<h3 id="running-the-sensor-integrity-tests">Running the sensor integrity tests<a class="headerlink" href="#running-the-sensor-integrity-tests" title="Permanent link">&para;</a></h3>
+<p>The tests executed by the <code>Cy_CapSense_RunSelfTest</code> high-level CAPSENSE&trade; BIST API check the following items:</p>
+<ul>
+<li>Widget RAM integrity</li>
+<li>Sensor GPIO short to GND/VDD or to another sensor GPIO</li>
+<li>Sensor capacitance is within the MSCLP block's capabilities (1 pF to 200 pF)</li>
+<li>Electrode capacitance is within the MSCLP block's capabilities (1 pF to 200 pF)</li>
+<li>External capacitor (<span class="arithmatex">\(C_{MOD}\)</span>) capacitance is within the acceptable range (2.2 nF &plusmn; 10%)</li>
+<li><span class="arithmatex">\(V_{DDA}\)</span> voltage is within the acceptable range</li>
+<li>Shield electrode capacitance is within the MSCLP block's capabilities (1 pF to 200 pF)</li>
+</ul>
+<p>The sensor raw counts integrity tests can be executed with more specific upper and lower limits. This integrity test verifies that the hardware and software configuration of a given sensor is functioning as expected.</p>
+<ol>
+<li>Add a function to print the BIST test results</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">print_bist_test_result</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">test_name</span><span class="p">,</span><span class="w"> </span><span class="n">cy_en_capsense_bist_status_t</span><span class="w"> </span><span class="n">result</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">test_result_string</span><span class="p">[</span><span class="mi">50</span><span class="p">];</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">test_name_string</span><span class="p">[</span><span class="mi">50</span><span class="p">];</span>
+<span class="w">    </span><span class="k">switch</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">CY_CAPSENSE_BIST_SUCCESS_E</span><span class="p">:</span>
+<span class="w">            </span><span class="n">sprintf</span><span class="p">(</span><span class="n">test_result_string</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Successful </span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">CY_CAPSENSE_BIST_BAD_PARAM_E</span><span class="p">:</span>
+<span class="w">            </span><span class="n">sprintf</span><span class="p">(</span><span class="n">test_result_string</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Bad Parameter </span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">CY_CAPSENSE_BIST_HW_BUSY_E</span><span class="p">:</span>
+<span class="w">            </span><span class="n">sprintf</span><span class="p">(</span><span class="n">test_result_string</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;CAPSENSE HW Busy </span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">CY_CAPSENSE_BIST_LOW_LIMIT_E</span><span class="p">:</span>
+<span class="w">            </span><span class="n">sprintf</span><span class="p">(</span><span class="n">test_result_string</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Low Limit Error </span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">CY_CAPSENSE_BIST_HIGH_LIMIT_E</span><span class="p">:</span>
+<span class="w">            </span><span class="n">sprintf</span><span class="p">(</span><span class="n">test_result_string</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;High Limit Error </span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">CY_CAPSENSE_BIST_ERROR_E</span><span class="p">:</span>
+<span class="w">            </span><span class="n">sprintf</span><span class="p">(</span><span class="n">test_result_string</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Error </span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">CY_CAPSENSE_BIST_FEATURE_DISABLED_E</span><span class="p">:</span>
+<span class="w">            </span><span class="n">sprintf</span><span class="p">(</span><span class="n">test_result_string</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;BIST Feature Disabled </span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">CY_CAPSENSE_BIST_TIMEOUT_E</span><span class="p">:</span>
+<span class="w">            </span><span class="n">sprintf</span><span class="p">(</span><span class="n">test_result_string</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Timeout </span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">CY_CAPSENSE_BIST_BAD_CONFIG_E</span><span class="p">:</span>
+<span class="w">            </span><span class="n">sprintf</span><span class="p">(</span><span class="n">test_result_string</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Bad Config </span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">CY_CAPSENSE_BIST_FAIL_E</span><span class="p">:</span>
+<span class="w">            </span><span class="n">sprintf</span><span class="p">(</span><span class="n">test_result_string</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Fail </span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="k">default</span><span class="o">:</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">sprintf</span><span class="p">(</span><span class="n">test_name_string</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">%s BIST Status: &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">test_name</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Cy_SCB_UART_PutString</span><span class="p">(</span><span class="n">DEBUG_UART_HW</span><span class="p">,</span><span class="w"> </span><span class="n">test_name_string</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Cy_SCB_UART_PutString</span><span class="p">(</span><span class="n">DEBUG_UART_HW</span><span class="p">,</span><span class="w"> </span><span class="n">test_result_string</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<ol start="2">
+<li>Use this new function to print the result of the test enabled in the <a href="#enabling-the-bist-libraries-for-capsensetm">Enabling the BIST libraries for CAPSENSE&trade;</a> section</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="cm">/* Measures the actual ILO frequency and compensate MSCLP wake up timers */</span>
+<span class="n">Cy_CapSense_IloCompensate</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cy_capsense_context</span><span class="p">);</span>
+
+<span class="n">cy_en_capsense_bist_status_t</span><span class="w"> </span><span class="n">run_self_test_result</span><span class="p">;</span>
+<span class="n">run_self_test_result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Cy_CapSense_RunSelfTest</span><span class="p">(</span><span class="n">CY_CAPSENSE_BIST_RUN_AVAILABLE_SELF_TEST_MASK</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">cy_capsense_context</span><span class="p">);</span>
+<span class="n">print_bist_test_result</span><span class="p">(</span><span class="s">&quot;Run Self Test&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">run_self_test_result</span><span class="p">);</span>
+</code></pre></div>
+<ol start="3">
+<li>Open the <strong>CAPSENSE&trade; Tuner</strong> from the ModusToolbox&trade; for VS Code extension</li>
+</ol>
+<p><img src="assets/images/launching_capsense_tuner_from_modustoolbox_vscode_extension.png" alt="Opening CAPSENSE Tuner" style="width:1200px; height:auto; display:block; margin:0 auto;" /></p>
+<ol start="4">
+<li>Connect to the device and enable the low-power sensor and button sensor widgets in the tuner</li>
+</ol>
+<p><img src="assets/images/connecting_to_capsense_tuner.png" alt="Enabling Widget in Tuner" style="width:413px; height:auto; display:block; margin:0 auto;" /></p>
+<ol start="5">
+<li>Press the <strong>Start</strong> button to begin streaming the raw counts</li>
+</ol>
+<p><img src="assets/images/connecting_to_capsense_tuner.png" alt="Starting CAPSENSE stream" style="width:413px; height:auto; display:block; margin:0 auto;" /></p>
+<ol start="6">
+<li>In the <strong>Graph View</strong>, observe the raw counts for both sensors. You will need to wait for the device to enter Wake-On-Touch mode before the low-power sensor raw counts are reported to the tuner</li>
+</ol>
+<p><img src="assets/images/viewing_raw_counts.png" alt="Graph View in Tuner" style="width:1200px; height:auto; display:block; margin:0 auto;" /></p>
+<ol start="7">
+<li>In the main.c file, add the following code to execute the sensor raw counts integrity checks<ul>
+<li>Update the raw count lower and upper limits based on the raw counts observed in the tuner. The recommended starting point for the lower and upper limit settings is &plusmn;20% of the observed raw counts.</li>
+</ul>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="kt">uint16_t</span><span class="w"> </span><span class="n">lp_sensor_low_baseline</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1190</span><span class="p">;</span>
+<span class="kt">uint16_t</span><span class="w"> </span><span class="n">lp_sensor_high_baseline</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1790</span><span class="p">;</span>
+<span class="n">cy_en_capsense_bist_status_t</span><span class="w"> </span><span class="n">lp_sensor_raw_count_bist</span><span class="p">;</span>
+
+<span class="n">lp_sensor_raw_count_bist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Cy_CapSense_CheckIntegritySensorRawcount</span><span class="p">(</span>
+<span class="w">    </span><span class="n">CY_CAPSENSE_LOWPOWER0_WDGT_ID</span><span class="p">,</span>
+<span class="w">    </span><span class="n">CY_CAPSENSE_LOWPOWER0_SNS0_ID</span><span class="p">,</span>
+<span class="w">    </span><span class="n">lp_sensor_high_baseline</span><span class="p">,</span>
+<span class="w">    </span><span class="n">lp_sensor_low_baseline</span><span class="p">,</span>
+<span class="w">    </span><span class="o">&amp;</span><span class="n">cy_capsense_context</span>
+<span class="p">);</span>
+<span class="n">print_bist_test_result</span><span class="p">(</span><span class="s">&quot;LP Sensor Raw Count&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lp_sensor_raw_count_bist</span><span class="p">);</span>
+
+<span class="kt">uint16_t</span><span class="w"> </span><span class="n">button0_low_baseline</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1190</span><span class="p">;</span>
+<span class="kt">uint16_t</span><span class="w"> </span><span class="n">button0_high_baseline</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1790</span><span class="p">;</span>
+<span class="n">cy_en_capsense_bist_status_t</span><span class="w"> </span><span class="n">button0_raw_count_bist</span><span class="p">;</span>
+
+<span class="n">button0_raw_count_bist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Cy_CapSense_CheckIntegritySensorRawcount</span><span class="p">(</span>
+<span class="w">    </span><span class="n">CY_CAPSENSE_BUTTON0_WDGT_ID</span><span class="p">,</span>
+<span class="w">    </span><span class="n">CY_CAPSENSE_BUTTON0_SNS0_ID</span><span class="p">,</span>
+<span class="w">    </span><span class="n">button0_high_baseline</span><span class="p">,</span>
+<span class="w">    </span><span class="n">button0_low_baseline</span><span class="p">,</span>
+<span class="w">    </span><span class="o">&amp;</span><span class="n">cy_capsense_context</span>
+<span class="p">);</span>
+<span class="n">print_bist_test_result</span><span class="p">(</span><span class="s">&quot;Button 0 Raw Count&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">button0_raw_count_bist</span><span class="p">);</span>
+
+<span class="cm">/* Configure the MSCLP wake up timer as per the ACTIVE mode refresh rate */</span>
+<span class="n">Cy_CapSense_ConfigureMsclpTimer</span><span class="p">(</span><span class="n">ACTIVE_MODE_TIMER</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">cy_capsense_context</span><span class="p">);</span>
+</code></pre></div>
+<ol start="8">
+<li>Ensure the <strong>CAPSENSE&trade; Tuner</strong> is disconnected, and then program the device</li>
+<li>Observe the output of the test in the terminal</li>
+</ol>
+<p><img src="assets/images/output_of_capsense_bist_raw_counts.png" alt="Terminal Output with raw count test" style="width:659px; height:auto; display:block; margin:0 auto;" /></p>
+<hr />
+<h3 id="exploring-bist-behavior">Exploring BIST behavior<a class="headerlink" href="#exploring-bist-behavior" title="Permanent link">&para;</a></h3>
+<p>Now that the tests are being executed during the application initialization, check that they can identify errors:</p>
+<ul>
+<li>Short the sensor signal to ground</li>
+<li>Short the sensor signal to <span class="arithmatex">\(V_{DDA}\)</span></li>
+<li>Short the sensor signal to another GPIO, keeping in mind that the GPIO must be either configured for use by the CAPSENSE&trade; block, or set to strong output high or strong output low during the test execution</li>
+<li>Adjust the raw counts integrity upper and lower limits so that the test fails</li>
+</ul>
+<h3 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h3>
+<p>In this lab, you enabled and executed the built-in self-tests for the CAPSENSE&trade; middleware on the device. These tests can be used to verify that the MSCLP block and capacitive sensor GPIOs are functioning as expected before allowing the device to continue with normal operation.</p>
+<hr />
+<h2 id="executing-the-built-in-self-tests-periodically">Executing the built-in self-tests periodically<a class="headerlink" href="#executing-the-built-in-self-tests-periodically" title="Permanent link">&para;</a></h2>
+<h3 id="objective_1">Objective<a class="headerlink" href="#objective_1" title="Permanent link">&para;</a></h3>
+<p>The BIST APIs can be executed periodically during runtime to verify that the device is still operating as expected.</p>
+<h3 id="adding-method-to-execute-self-tests-periodically">Adding method to execute self-tests periodically<a class="headerlink" href="#adding-method-to-execute-self-tests-periodically" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Move the execution of the BIST and printing of their results into a dedicated function inside main.c</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">execute_capsense_bist</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="cm">/* Execute all BIST functions and print results from section 3.</span>
+<span class="cm">     * This is effectively all code as configured in earlier steps. */</span>
+<span class="p">}</span>
+</code></pre></div>
+<ol start="2">
+<li>Call this function in main.c during the initialization of the application</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="cm">/* Measures the actual ILO frequency and compensate MSCLP wake up timers */</span>
+<span class="n">Cy_CapSense_IloCompensate</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cy_capsense_context</span><span class="p">);</span>
+
+<span class="n">execute_capsense_bist</span><span class="p">();</span>
+
+<span class="cm">/* Configure the MSCLP wake up timer as per the ACTIVE mode refresh rate */</span>
+<span class="n">Cy_CapSense_ConfigureMsclpTimer</span><span class="p">(</span><span class="n">ACTIVE_MODE_TIMER</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">cy_capsense_context</span><span class="p">);</span>
+</code></pre></div>
+<ol start="3">
+<li>Open the <strong>Device Configurator</strong> from the ModusToolbox&trade; for VS Code extension by clicking the <strong>Configure Device</strong> button</li>
+</ol>
+<p><img src="assets/images/launching_device_configurator_from_modustoolbox_vscode_extension.png" alt="SW1 Configuration" style="width:800px; height:auto; display:block; margin:0 auto;" /></p>
+<ol start="4">
+<li>Enable <strong>P5.6</strong> as resistive pull-up with the input buffer on and set the interrupt trigger type to rising edge</li>
+</ol>
+<p><img src="assets/images/enabling_gpio_input.png" alt="SW1 Configuration" style="width:473px; height:auto; display:block; margin:0 auto;" /></p>
+<ol start="5">
+<li>Save and close the <strong>Device Configurator</strong></li>
+<li>Add a button ISR and Boolean flag to main.c, as shown in the following code:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="k">static</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">execute_bist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">button_isr</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">execute_bist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">    </span><span class="n">Cy_GPIO_ClearInterrupt</span><span class="p">(</span><span class="n">CYBSP_USER_BTN1_PORT</span><span class="p">,</span><span class="w"> </span><span class="n">CYBSP_USER_BTN1_PIN</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<ol start="7">
+<li>Enable the button IRQ inside main.c:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="n">cy_stc_sysint_t</span><span class="w"> </span><span class="n">intrCfg</span><span class="w"> </span><span class="o">=</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="p">.</span><span class="n">intrSrc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CYBSP_USER_BTN1_IRQ</span><span class="p">,</span>
+<span class="w">    </span><span class="p">.</span><span class="n">intrPriority</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3UL</span>
+<span class="p">};</span>
+
+<span class="n">Cy_SysInt_Init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">intrCfg</span><span class="p">,</span><span class="w"> </span><span class="n">button_isr</span><span class="p">);</span>
+
+<span class="cm">/* Enable the interrupt */</span>
+<span class="n">NVIC_EnableIRQ</span><span class="p">(</span><span class="n">intrCfg</span><span class="p">.</span><span class="n">intrSrc</span><span class="p">);</span>
+
+<span class="cm">/* Enable global interrupts */</span>
+<span class="n">__enable_irq</span><span class="p">();</span>
+</code></pre></div>
+<ol start="8">
+<li>When the button interrupt flag is set, execute the BISTs</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="cp">#if ENABLE_PWM_LED</span>
+<span class="n">led_control</span><span class="p">();</span>
+<span class="cp">#endif</span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">execute_bist</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="cm">/* Simple debounce */</span>
+<span class="w">    </span><span class="n">Cy_SysLib_Delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+<span class="w">    </span><span class="n">execute_bist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">    </span><span class="n">execute_capsense_bist</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<ol start="9">
+<li>Program the device</li>
+<li>Observe the output after pressing <strong>SW1</strong></li>
+</ol>
+<p><img src="assets/images/output_of_capsense_bist_runtime.png" alt="Terminal output on SW1 press" style="width:659px; height:auto; display:block; margin:0 auto;" /></p>
+<hr />
+<h3 id="exploring-bist-behavior_1">Exploring BIST behavior<a class="headerlink" href="#exploring-bist-behavior_1" title="Permanent link">&para;</a></h3>
+<p>Now that the BISTs can be executed periodically during runtime, observe the test output while forcing errors during runtime:</p>
+<ul>
+<li>Touch the sensor, observe the green LED reporting the touch status, then while touching the button, press SW1 to trigger the BIST execution. This should not force an error, but the measured capacitance will change, so if this test is run with tighter boundaries, it will fail if it is run while a user is interacting with the system</li>
+<li>Configure SysTick to call the BISTs periodically</li>
+</ul>
+<h3 id="conclusion_1">Conclusion<a class="headerlink" href="#conclusion_1" title="Permanent link">&para;</a></h3>
+<p>In this lab, you executed the built-in self-tests during runtime. This shows that these tests can be used to periodically verify that the CAPSENSE&trade; hardware is functioning as expected. This is a critical process for ensuring proper safety while using CAPSENSE&trade; widgets to gate safety-critical operations.</p>
+<hr />
+<h2 id="revision-history">Revision history<a class="headerlink" href="#revision-history" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Document revision</th>
+<th style="text-align: left;">Date</th>
+<th style="text-align: left;">Description of changes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">**</td>
+<td style="text-align: left;">2026-08-24</td>
+<td style="text-align: left;">Initial release.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="disclaimer">Disclaimer<a class="headerlink" href="#disclaimer" title="Permanent link">&para;</a></h3>
+<p>All referenced product or service names and trademarks are the property of their respective owners.</p>
+<p>The Bluetooth&reg; word mark and logos are registered trademarks owned by Bluetooth SIG, Inc., and any use of such marks by Infineon is under license.</p>
+<p>PSOC&trade;, formerly known as PSoC&trade;, is a trademark of Infineon Technologies. Any references to PSoC&trade; in this document or others shall be deemed to refer to PSOC&trade;.</p>
+<hr />
+<p>© Cypress Semiconductor Corporation, 2023-2026. This document is the property of Cypress Semiconductor Corporation, an Infineon Technologies company, and its affiliates ("Cypress").  This document, including any software or firmware included or referenced in this document ("Software"), is owned by Cypress under the intellectual property laws and treaties of the United States and other countries worldwide.  Cypress reserves all rights under such laws and treaties and does not, except as specifically stated in this paragraph, grant any license under its patents, copyrights, trademarks, or other intellectual property rights.  If the Software is not accompanied by a license agreement and you do not otherwise have a written agreement with Cypress governing the use of the Software, then Cypress hereby grants you a personal, non-exclusive, nontransferable license (without the right to sublicense) (1) under its copyright rights in the Software (a) for Software provided in source code form, to modify and reproduce the Software solely for use with Cypress hardware products, only internally within your organization, and (b) to distribute the Software in binary code form externally to end users (either directly or indirectly through resellers and distributors), solely for use on Cypress hardware product units, and (2) under those claims of Cypress's patents that are infringed by the Software (as provided by Cypress, unmodified) to make, use, distribute, and import the Software solely for use with Cypress hardware products.  Any other use, reproduction, modification, translation, or compilation of the Software is prohibited.
+<br>
+TO THE EXTENT PERMITTED BY APPLICABLE LAW, CYPRESS MAKES NO WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, WITH REGARD TO THIS DOCUMENT OR ANY SOFTWARE OR ACCOMPANYING HARDWARE, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.  No computing device can be absolutely secure.  Therefore, despite security measures implemented in Cypress hardware or software products, Cypress shall have no liability arising out of any security breach, such as unauthorized access to or use of a Cypress product. CYPRESS DOES NOT REPRESENT, WARRANT, OR GUARANTEE THAT CYPRESS PRODUCTS, OR SYSTEMS CREATED USING CYPRESS PRODUCTS, WILL BE FREE FROM CORRUPTION, ATTACK, VIRUSES, INTERFERENCE, HACKING, DATA LOSS OR THEFT, OR OTHER SECURITY INTRUSION (collectively, "Security Breach").  Cypress disclaims any liability relating to any Security Breach, and you shall and hereby do release Cypress from any claim, damage, or other liability arising from any Security Breach.  In addition, the products described in these materials may contain design defects or errors known as errata which may cause the product to deviate from published specifications. To the extent permitted by applicable law, Cypress reserves the right to make changes to this document without further notice. Cypress does not assume any liability arising out of the application or use of any product or circuit described in this document. Any information provided in this document, including any sample design information or programming code, is provided only for reference purposes.  It is the responsibility of the user of this document to properly design, program, and test the functionality and safety of any application made of this information and any resulting product.  "High-Risk Device" means any device or system whose failure could cause personal injury, death, or property damage.  Examples of High-Risk Devices are weapons, nuclear installations, surgical implants, and other medical devices.  "Critical Component" means any component of a High-Risk Device whose failure to perform can be reasonably expected to cause, directly or indirectly, the failure of the High-Risk Device, or to affect its safety or effectiveness.  Cypress is not liable, in whole or in part, and you shall and hereby do release Cypress from any claim, damage, or other liability arising from any use of a Cypress product as a Critical Component in a High-Risk Device. You shall indemnify and hold Cypress, including its affiliates, and its directors, officers, employees, agents, distributors, and assigns harmless from and against all claims, costs, damages, and expenses, arising out of any claim, including claims for product liability, personal injury or death, or property damage arising from any use of a Cypress product as a Critical Component in a High-Risk Device. Cypress products are not intended or authorized for use as a Critical Component in any High-Risk Device except to the limited extent that (i) Cypress's published data sheet for the product explicitly states Cypress has qualified the product for use in a specific High-Risk Device, or (ii) Cypress has given you advance written authorization to use the product as a Critical Component in the specific High-Risk Device and you have signed a separate indemnification agreement.
+<br>
+Cypress, the Cypress logo, and combinations thereof, ModusToolbox, PSoC, CAPSENSE, EZ-USB, F-RAM, and TRAVEO are trademarks or registered trademarks of Cypress or a subsidiary of Cypress in the United States or in other countries. For a more complete list of Cypress trademarks, visit www.infineon.com. Other names and brands may be claimed as property of their respective owners.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="Presentation/PSOC%28TM%29%204%20CAPSENSE%28TM%29%20built%20in%20self%20test.pdf" class="md-footer__link md-footer__link--prev" aria-label="Previous: Presentation">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Presentation
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.top", "navigation.footer", "navigation.expand", "toc.integrate", "search.suggest", "search.highlight", "content.code.copy"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="javascripts/collapsible.js"></script>
+      
+        <script src="javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
